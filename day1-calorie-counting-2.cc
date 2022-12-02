@@ -10,9 +10,9 @@ int main(const int argc, const char *argv[])
     {
         return 1;
     }
-    
+
     auto fileStream = ReadFile(argv[1]);
-    if(!fileStream)
+    if (!fileStream)
     {
         std::cerr << "Failed to open or read file \'" << argv[1] << "\'\n";
         return 1;

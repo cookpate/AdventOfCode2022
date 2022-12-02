@@ -9,8 +9,9 @@ int main(const int argc, const char *argv[])
     {
         return 1;
     }
+
     auto fileStream = ReadFile(argv[1]);
-    if(!fileStream)
+    if (!fileStream)
     {
         std::cerr << "Failed to open or read file " << argv[1] << '\n';
         return 1;
@@ -21,20 +22,20 @@ int main(const int argc, const char *argv[])
     int max = 0;
     while (std::getline(*fileStream, line))
     {
-        if(line.empty())
+        if (line.empty())
         {
             max = std::max(max, calories);
             calories = 0;
         }
-        else 
+        else
         {
             int value = 0;
-            auto [_, errc]  = std::from_chars(&line.front(), &line.back() + 1, value);
-            if(errc != std::errc{})
+            auto [_, errc] = std::from_chars(&line.front(), &line.back() + 1, value);
+            if (errc != std::errc{})
             {
                 std::cerr << "failed to parse \'" << line << "\'\n";
                 std::cerr.flush();
-                std::exit(1); 
+                std::exit(1);
             }
             calories += value;
         }
