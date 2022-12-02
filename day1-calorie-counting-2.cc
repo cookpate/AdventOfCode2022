@@ -40,7 +40,6 @@ int main(const int argc, const char *argv[])
             calories += value;
         }
     }
-    maxes.insert(calories);
     const int total = std::accumulate(maxes.crbegin(), std::next(maxes.crbegin(), std::min(maxes.size(), size_t(3))), 0);
     std::cout << total << '\n';
 }

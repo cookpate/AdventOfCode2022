@@ -24,8 +24,7 @@ int main(const int argc, const char *argv[])
     {
         if (line.empty())
         {
-            max = std::max(max, calories);
-            calories = 0;
+            max = std::max(max, std::exchange(calories, 0));
         }
         else
         {
@@ -40,6 +39,5 @@ int main(const int argc, const char *argv[])
             calories += value;
         }
     }
-    max = std::max(max, calories);
     std::cout << max << '\n';
 }
