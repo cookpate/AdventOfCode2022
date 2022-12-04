@@ -48,12 +48,11 @@ int main(const int argc, const char *argv[])
         int groupBadgeShared[127]{};
         for (int i = 0; i < 2; ++i)
         {
-            bool badgeSeen[127]{};
             for (int badgeIdx : group[i])
             {
-                if (!badgeSeen[badgeIdx])
+                // check duplicates and skip non-sharing
+                if (groupBadgeShared[badgeIdx] == i)
                 {
-                    badgeSeen[badgeIdx] = true;
                     groupBadgeShared[badgeIdx]++;
                 }
             }
