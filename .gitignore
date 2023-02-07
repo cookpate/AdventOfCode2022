@@ -1,3 +1,7 @@
 build
 day*.txt
 .vscode
+
+# clangd
+.cache
+compile_commands.json
