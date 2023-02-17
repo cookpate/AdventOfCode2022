@@ -14,7 +14,7 @@ std::optional<std::istringstream> ReadFile(std::filesystem::path path);
 
 // casts int to enum, checking bad values
 template <typename Enum, Enum min, Enum max>
-constexpr std::optional<Enum> EnumCast(const int toCast) noexcept {
+constexpr inline std::optional<Enum> EnumCast(const int toCast) noexcept {
   static_assert(min <= max, "Inverted bounds!");
   Enum casted = std::max(min, std::min(static_cast<Enum>(toCast), max));
   return casted == toCast ? std::make_optional(casted) : std::nullopt;
