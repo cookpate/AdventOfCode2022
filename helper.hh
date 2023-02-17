@@ -30,8 +30,6 @@ std::from_chars_result from_chars(std::string_view string, Integer &result,
     (void)base;
     return std::from_chars(string.data(),
                            std::next(string.data(), string.size()), result);
-  } else {
-    static_assert(!"Must be integer or floating type");
   }
 }
 
